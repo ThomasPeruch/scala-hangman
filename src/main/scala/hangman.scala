@@ -17,7 +17,12 @@ def setupGame(): Unit =
   val wordIndex = Random.nextInt(words.size)
   word = words(wordIndex).toUpperCase()
   println(word)
+
+  for (i <- word.indices)
+    guesses.addOne('_')
+
   printGameStatus()
+
 
 
 def printGameStatus(): Unit =
@@ -30,4 +35,11 @@ def printGameStatus(): Unit =
     case 5 => print5Mistakes()
     case 6 => print6Mistakes()
   }
+  print("WORD: ")
+  for (letter <- guesses){
+    print(s"$letter ")
+  }
+
+  println(s"\nYou have $remainingGuesses guess(es) left")
+
 
