@@ -37,11 +37,18 @@ def setupGame(): Unit =
       }
     }else{
       println("That's not part of the word")
-      remainingGuesses -=1
-      if (mistakes >= 6 ) gameOver = true
-      mistakes +=1
+      remainingGuesses = remainingGuesses-1
+      mistakes = mistakes + 1
       println("\n\n")
+      if ( mistakes >= 6 )
+        gameOver = true
     }
+
+  }
+  if (mistakes == 6) {
+    println(s"You lost, the word was: $word")
+  }else{
+    println(s"Congratulations, you won. The word was: $word")
   }
 
 
