@@ -10,14 +10,24 @@ var remainingGuesses = 6
 var mistakes = 0
 
 @main
-def mainGame() = {
+def mainGame(): Unit =
   setupGame()
-}
 
-def setupGame() = {
+def setupGame(): Unit =
   val wordIndex = Random.nextInt(words.size)
   word = words(wordIndex).toUpperCase()
   println(word)
-}
+  printGameStatus()
 
+
+def printGameStatus(): Unit =
+  mistakes match {
+    case 0 => print0Mistakes()
+    case 1 => print1Mistake()
+    case 2 => print2Mistakes()
+    case 3 => print3Mistakes()
+    case 4 => print4Mistakes()
+    case 5 => print5Mistakes()
+    case 6 => print6Mistakes()
+  }
 
